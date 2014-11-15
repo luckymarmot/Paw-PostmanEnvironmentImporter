@@ -7,8 +7,7 @@ var PostmanEnvironmentImporter = function() {
 		
 		// Check Postman data
 		if (!postmanCollection || !postmanCollection["values"] || !postmanCollection["name"]) {
-			console.log("Invalid Postman data");
-			return false;
+			throw new Error("Invalid Postman data");
 		}
 		
 		var pawEnvironmentDomain = context.createEnvironmentDomain("Imported (Postman)");
@@ -27,6 +26,6 @@ var PostmanEnvironmentImporter = function() {
 }
 
 PostmanEnvironmentImporter.identifier = "com.luckymarmot.PawExtensions.PostmanEnvironmentImporter";
-PostmanEnvironmentImporter.title = "Postman (Environment)";
+PostmanEnvironmentImporter.title = "Postman Environment Importer";
 
 registerImporter(PostmanEnvironmentImporter);
