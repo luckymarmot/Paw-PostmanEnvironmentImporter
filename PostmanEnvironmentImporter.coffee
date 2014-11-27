@@ -12,11 +12,17 @@ PostmanEnvironmentImporter = () ->
         if not postmanEnvironments or not postmanEnvironments["values"] or not postmanEnvironments["name"]
             throw new Error "Invalid Postman file (missing data)"
 
-        pawEnvironmentDomain = context.createEnvironmentDomain "Imported (Postman)"
-        pawEnvironment = pawEnvironmentDomain.createEnvironment postmanCollection["name"]
+        # Get or create the Environment Domain
+        pawEnvironmentDomainName = "Imported (Postman)"
+        pawEnvironmentDomain = context.getEnvironmentDomainByName pawEnvironmentDomainName
+        if not pawEnvironmentDomain
+            pawEnvironmentDomain = context.createEnvironmentDomain pawEnvironmentDomainName
+
+        # Create the Environment
+        pawEnvironment = pawEnvironmentDomain.createEnvironment postmanEnvironments["name"]
 
         variablesDict = {}
-        for postmanValue in postmanCollection["values"]
+        for postmanValue in postmanEnvironments["values"]
             variablesDict[postmanValue["key"]] = postmanValue["value"]
 
         pawEnvironment.setVariablesValues variablesDict

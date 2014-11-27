@@ -4,7 +4,7 @@
 
   PostmanEnvironmentImporter = function() {
     this.importString = function(context, string) {
-      var error, pawEnvironment, pawEnvironmentDomain, postmanEnvironments, postmanValue, variablesDict, _i, _len, _ref;
+      var error, pawEnvironment, pawEnvironmentDomain, pawEnvironmentDomainName, postmanEnvironments, postmanValue, variablesDict, _i, _len, _ref;
       try {
         postmanEnvironments = JSON.parse(string);
       } catch (_error) {
@@ -14,10 +14,14 @@
       if (!postmanEnvironments || !postmanEnvironments["values"] || !postmanEnvironments["name"]) {
         throw new Error("Invalid Postman file (missing data)");
       }
-      pawEnvironmentDomain = context.createEnvironmentDomain("Imported (Postman)");
-      pawEnvironment = pawEnvironmentDomain.createEnvironment(postmanCollection["name"]);
+      pawEnvironmentDomainName = "Imported (Postman)";
+      pawEnvironmentDomain = context.getEnvironmentDomainByName(pawEnvironmentDomainName);
+      if (!pawEnvironmentDomain) {
+        pawEnvironmentDomain = context.createEnvironmentDomain(pawEnvironmentDomainName);
+      }
+      pawEnvironment = pawEnvironmentDomain.createEnvironment(postmanEnvironments["name"]);
       variablesDict = {};
-      _ref = postmanCollection["values"];
+      _ref = postmanEnvironments["values"];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         postmanValue = _ref[_i];
         variablesDict[postmanValue["key"]] = postmanValue["value"];
