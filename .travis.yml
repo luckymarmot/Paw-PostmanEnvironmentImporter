@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '0.10'
+before_install:
+- npm install coffee-script
+before_script:
+- ./node_modules/.bin/cake archive
+script:
+- ./node_modules/.bin/cake test
+deploy:
+  provider: releases
+  api_key:
+    secure: qGSPr2p626c/ij6T5ByDchhtocbd+ADbC9EdhgKDzf0R3ho3XdeH88Ydi/mAWIKX+7K7Q4/6BeNtgRfjKiM1taNwB6g7ASoA7TZ+m6DgyQAaQcvBPbcvRaCLioNNgXMR5W5id3EdiYI3L5x+d+N8+9vlhXYTcAbY31iFHf3m6sw=
+  file: build/PostmanEnvironmentImporter.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+    repo: LuckyMarmot/Paw-PostmanEnvironmentImporter
