@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/LuckyMarmot/Paw-PostmanEnvironmentImporter.svg?branch=master)](https://travis-ci.org/LuckyMarmot/Paw-PostmanEnvironmentImporter)
+[![Build Status](https://travis-ci.org/luckymarmot/Paw-PostmanEnvironmentImporter.svg?branch=master)](https://travis-ci.org/luckymarmot/Paw-PostmanEnvironmentImporter)
 
 #Postman Environment Importer (Paw Extension)
 
 This a Paw Extension to import [Postman Environments](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm) into Paw.
 
-Note that if you need to import Postman Collections (where your requests are saved), you need to use the [Postman Importer](https://github.com/LuckyMarmot/Paw-PostmanImporter).
+Note that if you need to import Postman Collections (where your requests are saved), you need to use the [Postman Importer](https://github.com/luckymarmot/Paw-PostmanImporter).
 
 #How to use?
 
@@ -23,4 +23,4 @@ Copyright © 2014 Paw Inc.
 
 ##Contributors
 
-See [Contributors](https://github.com/LuckyMarmot/Paw-PostmanEnvironmentImporter/graphs/contributors).
+See [Contributors](https://github.com/luckymarmot/Paw-PostmanEnvironmentImporter/graphs/contributors).
