@@ -9,8 +9,11 @@ PostmanEnvironmentImporter = () ->
             throw new Error "Invalid Postman file (not a valid JSON)"
 
         # Check Postman data
-        if not postmanEnvironments or not postmanEnvironments["values"] or not postmanEnvironments["name"]
-            throw new Error "Invalid Postman file (missing data)"
+        if not postmanEnvironments or not postmanEnvironments["values"]? or not postmanEnvironments["name"]?
+            if postmanEnvironments["requests"]?
+                throw new Error "Invalid Postman Environments file (this is a Postman Collection file, use the 'Postman Importer' instead)"
+            else
+                throw new Error "Invalid Postman Environments file (missing required `values` and `name` keys)"
 
         # Get or create the Environment Domain
         pawEnvironmentDomainName = "Imported (Postman)"
