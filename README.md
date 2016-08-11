@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/luckymarmot/Paw-PostmanEnvironmentImporter.svg?branch=master)](https://travis-ci.org/luckymarmot/Paw-PostmanEnvironmentImporter)
 
-# Postman Environment Importer (Paw Extension)
+# Postman Environment Importer (Paw Extension) [DEPRECATED]
+** There is now a Postman Importer that supports both collections and environments
+
 
 A [Paw Extension](http://luckymarmot.com/paw/extensions/) to import [Postman Environments](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm) into Paw.
 
